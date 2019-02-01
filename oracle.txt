@@ -1,0 +1,9 @@
+oracle快照表查询：
+insert into report_tmp_push_order
+SELECT * from unifast.report_tmp_push_order AS OF TIMESTAMP 
+TO_TIMESTAMP('2019-01-23 13:00:47', 'YYYY-MM-DD HH24:MI:SS');
+
+oracle物理分页：
+select * from ( select  t.*, rownum RN from TABLE_NAME  t ) where RN between 1 and 15
+select * from ( select  t.*, rownum RN from TABLE_NAME  t ) where RN > 0 and <=15
+
